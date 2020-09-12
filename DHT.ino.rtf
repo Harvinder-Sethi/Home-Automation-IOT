@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier-Oblique;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red16\green131\blue255;\red57\green57\blue57;\red67\green67\blue67;
+\red252\green79\blue8;\red190\green31\blue4;\red10\green82\blue135;}
+{\*\expandedcolortbl;;\cssrgb\c0\c60000\c100000;\cssrgb\c28627\c28627\c28627;\cssrgb\c33333\c33333\c33333;
+\cssrgb\c100000\c40000\c0;\cssrgb\c80000\c20000\c0;\cssrgb\c0\c40000\c60000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f0\i\fs32 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #include "dht.h"
+\f1\i0 \cf3 \strokec3 \
+
+\f0\i \cf2 \strokec2 #define dht_apin A0 // Analog Pin sensor is connected to
+\f1\i0 \cf3 \strokec3 \
+ \
+dht DHT;\
+ \
+void setup()\{\
+ \
+  Serial\cf4 \strokec4 .\cf3 \strokec3 begin(\cf5 \strokec5 9600\cf3 \strokec3 );\
+  delay(\cf5 \strokec5 500\cf3 \strokec3 );\cf4 \strokec4 //\cf3 \strokec3 Delay to let system boot\
+  Serial\cf4 \strokec4 .\cf3 \strokec3 println(\cf6 \strokec6 "DHT11 Humidity & temperature Sensor
+\f2\b \\n\\n
+\f1\b0 "\cf3 \strokec3 );\
+  delay(\cf5 \strokec5 1000\cf3 \strokec3 );\cf4 \strokec4 //\cf3 \strokec3 Wait before accessing Sensor\
+ \
+\}\cf4 \strokec4 //\cf3 \strokec3 end \cf6 \strokec6 "setup()"\cf3 \strokec3 \
+ \
+void loop()\{\
+  \cf4 \strokec4 //\cf3 \strokec3 Start of Program \
+ \
+    DHT\cf4 \strokec4 .\cf3 \strokec3 read11(dht_apin);\
+    \
+    Serial\cf4 \strokec4 .
+\f2\b \cf7 \strokec7 print
+\f1\b0 \cf3 \strokec3 (\cf6 \strokec6 "Current humidity = "\cf3 \strokec3 );\
+    Serial\cf4 \strokec4 .
+\f2\b \cf7 \strokec7 print
+\f1\b0 \cf3 \strokec3 (DHT\cf4 \strokec4 .\cf3 \strokec3 humidity);\
+    Serial\cf4 \strokec4 .
+\f2\b \cf7 \strokec7 print
+\f1\b0 \cf3 \strokec3 (\cf6 \strokec6 "%  "\cf3 \strokec3 );\
+    Serial\cf4 \strokec4 .
+\f2\b \cf7 \strokec7 print
+\f1\b0 \cf3 \strokec3 (\cf6 \strokec6 "temperature = "\cf3 \strokec3 );\
+    Serial\cf4 \strokec4 .
+\f2\b \cf7 \strokec7 print
+\f1\b0 \cf3 \strokec3 (DHT\cf4 \strokec4 .\cf3 \strokec3 temperature); \
+    Serial\cf4 \strokec4 .\cf3 \strokec3 println(\cf6 \strokec6 "C  "\cf3 \strokec3 );\
+    \
+    delay(\cf5 \strokec5 5000\cf3 \strokec3 );\cf4 \strokec4 //\cf3 \strokec3 Wait \cf5 \strokec5 5\cf3 \strokec3  seconds before accessing sensor again\cf4 \strokec4 .\cf3 \strokec3 \
+ \
+  \cf4 \strokec4 //\cf3 \strokec3 Fastest should be once every two seconds\cf4 \strokec4 .\cf3 \strokec3 \
+ \
+\}\cf4 \strokec4 //\cf3 \strokec3  end loop() \
+}
